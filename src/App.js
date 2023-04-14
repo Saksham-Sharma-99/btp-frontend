@@ -62,7 +62,7 @@ function App() {
       <header className="App-header">
         <h1>Fatigue Strength Calculator</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        <div style={{display:"flex", padding:"10px", justifyContent:"space-between", width:"45vw"}}>
+        <div style={{display:"flex", padding:"10px", justifyContent:"space-between", width:"55vw"}}>
           <div style={{backgroundColor:"white",padding:"5px", borderRadius:"10px"}}>
               <Autocomplete
                 disablePortal
