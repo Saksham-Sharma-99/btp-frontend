@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Autocomplete, Button, Modal, TextField, Box, Typography } from '@mui/material';
 
 function makeGetRequest(route){
- return axios.get(`http://localhost:8000/${route}`)
+ return axios.get(`https://btpbackend.pythonanywhere.com/${route}`)
 }
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
 
 
     let route = "strength_data"
-    axios.get(`http://localhost:8000/${route}?alloy=${alloy}&condition=${param}`).then((res)=>{
+    axios.get(`https://btpbackend.pythonanywhere.com/${route}?alloy=${alloy}&condition=${param}`).then((res)=>{
       setError(false)
       setResult(res.data.data)
     }).catch((error)=>{
