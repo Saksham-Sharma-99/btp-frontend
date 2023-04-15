@@ -33,7 +33,7 @@ function useWindowDimensions() {
 
 
 function App() {
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const [alloys,setAlloys] = useState([])
   const [alloy,setAlloy] = useState()
   const [params, setParams] = useState([])
