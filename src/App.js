@@ -8,7 +8,32 @@ function makeGetRequest(route){
  return axios.get(`https://btpbackend.pythonanywhere.com/${route}`)
 }
 
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
+
+
 function App() {
+  const { height, width } = useWindowDimensions();
   const [alloys,setAlloys] = useState([])
   const [alloy,setAlloy] = useState()
   const [params, setParams] = useState([])
@@ -57,7 +82,16 @@ function App() {
   }
 
 
-  return (
+  return width < 884 ? (
+    
+      <div className="App">
+        <header className="App-header">
+          <h1>Fatigue Strength Calculator</h1>
+          <img src={logo} className="App-logo" alt="logo" />
+          <Typography>Please open the website on a desktop. Mobile version is unavailable right now</Typography>
+        </header>
+      </div>):
+      (
     <div className="App">
       <header className="App-header">
         <h1>Fatigue Strength Calculator</h1>
